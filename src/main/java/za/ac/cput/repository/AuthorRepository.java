@@ -15,7 +15,7 @@ public class AuthorRepository implements IAuthorRepository{
 
     public static IAuthorRepository getRepository() {
         if (repository == null) {
-            repository = new BookRepository();
+            repository = new AuthorRepository();
         }
         return repository;
     }

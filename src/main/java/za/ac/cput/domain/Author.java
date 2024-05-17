@@ -1,5 +1,7 @@
 package za.ac.cput.domain;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Objects;
 
 public class Author {
@@ -10,6 +12,7 @@ public class Author {
     private String emailAddress;
     private String phoneNumber;
     private String nationality;
+    private List<Book> newbook;
 
     private Author() {
 
@@ -22,6 +25,7 @@ public class Author {
         this.emailAddress= builder.emailAddress;
         this.phoneNumber= builder.phoneNumber;
         this.nationality= builder.nationality;
+        List<Book> AuthorID = new ArrayList<>();
     }
     public String getAuthorID() {
         return authorID;
@@ -43,6 +47,9 @@ public class Author {
     }
     public String getNationality() {
         return nationality;
+    }
+    public List<Book> getNewBook() {
+        return newbook;
     }
 
     @Override
@@ -69,6 +76,12 @@ public class Author {
                 ", nationality='" + nationality + '\'' +
                 '}';
     }
+
+    public Author.Builder newbook(List<Book> booksForSale) {
+        this.newbook = booksForSale;
+        return this;
+    }
+
     public static class Builder {
         private String authorID;
         private String firstName;

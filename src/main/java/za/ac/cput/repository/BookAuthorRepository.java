@@ -11,7 +11,7 @@ public class BookAuthorRepository implements IBookAuthorRepository {
     private static BookAuthorRepository repository = null;
     private List<BookAuthor> BookAuthorList;
     private BookAuthorRepository() {
-        AuthorList = new ArrayList<>();
+        BookAuthorList = new ArrayList<>();
     }
 
     public static IBookAuthorRepository getRepository() {
@@ -35,9 +35,9 @@ public class BookAuthorRepository implements IBookAuthorRepository {
     }
 
     @Override
-    public BookAuthor read(Long aLong) {
+    public BookAuthor read(String String) {
         for (BookAuthor bookAuthor : BookAuthorList) {
-            if (Objects.equals(BookAuthor.getBookAuthorID(), bookAuthor)) {
+            if (String.equals(BookAuthor.getAuthorID(), bookAuthor)) {
             }
             return bookAuthor;
         }
@@ -45,12 +45,12 @@ public class BookAuthorRepository implements IBookAuthorRepository {
     }
 
     @Override
-    public Author update(Author object) {
-        Author existingBookAuthor = read(object.getBookAuthorID());
+    public Author update(Author String) {
+        Author existingBookAuthor = read(String.getAuthorID());
         if (existingBookAuthor!= null) {
             BookAuthorList.remove(existingBookAuthor);
-            BookAuthorList.add(object);
-            return object;
+            BookAuthorList.add(String);
+            return String;
         }
         return null;
     }

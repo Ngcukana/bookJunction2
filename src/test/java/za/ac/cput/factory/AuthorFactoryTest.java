@@ -16,7 +16,7 @@ class AuthorFactoryTest {
     @Test
     void createAuthor() {
         String authorID = "221243526";
-        String fisrtName = "Anathi";
+        String firstName = "Anathi";
         String lastName = "Mququ";
         String dateofbirth = "19921223";
         String emailAddress = "anathimququ526@gnail.com";
@@ -24,11 +24,9 @@ class AuthorFactoryTest {
         String nationality = "South African";
         List<Book>  NewBook = new ArrayList<>();
 
-        // Create the Seller using the factory
 
         Author author = AuthorFactory.createAuthor(authorID, firstName, lastName, dateofbirth, emailAddress, phoneNumber, nationality);
 
-        // Assertions
         Assertions.assertNotNull(author);
         Assertions.assertEquals(authorID, author.getAuthorID());
         Assertions.assertEquals(firstName, author.getFirstName());
@@ -36,7 +34,7 @@ class AuthorFactoryTest {
         Assertions.assertEquals(dateofbirth, author.getDateofbirth());
         Assertions.assertEquals(phoneNumber, author.getPhoneNumber());
         Assertions.assertEquals(nationality, author.getNationality());
-        Assertions.assertEquals(NewBook, author.NewBook());
+        Assertions.assertEquals(NewBook, author.getNewBook());
         System.out.println(author.toString());
     }
 }
