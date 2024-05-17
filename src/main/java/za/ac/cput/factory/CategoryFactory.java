@@ -4,7 +4,7 @@ import za.ac.cput.domain.Category;
 import za.ac.cput.util.Helper;
 
 public class CategoryFactory {
-    public static Category Builder(long categoryID, String name, String description) {
+    public static Category createCategory(long categoryID, String name, String description) {
         if (Helper.isNullOrEmpty(String.valueOf(categoryID)) ||
                 Helper.isNullOrEmpty(name) ||
                 Helper.isNullOrEmpty(description)) {
@@ -17,4 +17,5 @@ public class CategoryFactory {
                 .build();
 
     }
+
 }

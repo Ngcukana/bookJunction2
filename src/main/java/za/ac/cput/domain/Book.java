@@ -3,7 +3,7 @@ package za.ac.cput.domain;
 import java.util.Objects;
 
 public class Book {
-    private long bookID;
+    private Long bookID;
     private String ISBN;
     private String title;
     private String edition;
@@ -22,7 +22,7 @@ public class Book {
 
     }
 
-    public long getBookID() {
+    public Long getBookID() {
         return bookID;
     }
 
@@ -71,14 +71,14 @@ public class Book {
     }
 
     public static class Builder {
-        private long bookID;
+        private Long bookID;
         private String ISBN;
         private String title;
         private String edition;
         private Double price;
         private String datePosted;
 
-        public Builder setBookID(long bookID) {
+        public Builder setBookID(Long bookID) {
             this.bookID = bookID;
             return this;
         }
