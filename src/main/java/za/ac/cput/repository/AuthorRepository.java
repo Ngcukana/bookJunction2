@@ -6,9 +6,10 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
-public class AuthorRepository implements IAuthorRepository{
+public class AuthorRepository implements IAuthorRepository {
     private static AuthorRepository repository = null;
     private List<Author> AuthorList;
+
     private AuthorRepository() {
         AuthorList = new ArrayList<>();
     }

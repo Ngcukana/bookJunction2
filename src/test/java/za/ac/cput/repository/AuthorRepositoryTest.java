@@ -49,7 +49,7 @@ class AuthorRepositoryTest {
 
     @Override
     public Author update(Author object) {
-        Author existingAuthor = read(object.getAuthorID());
+        Author existingAuthor = read(String.getAuthorID());
         if (existingAuthor != null) {
             AuthorList.remove(existingAuthor);
             AuthorList.add(object);

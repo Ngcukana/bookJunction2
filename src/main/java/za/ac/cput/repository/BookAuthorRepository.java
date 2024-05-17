@@ -49,7 +49,7 @@ public class BookAuthorRepository implements IBookAuthorRepository {
         Author existingBookAuthor = read(String.getAuthorID());
         if (existingBookAuthor!= null) {
             BookAuthorList.remove(existingBookAuthor);
-            BookAuthorList.add(String);
+            BookAuthorList.add();
             return String;
         }
         return null;
