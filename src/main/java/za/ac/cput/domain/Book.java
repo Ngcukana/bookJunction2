@@ -7,9 +7,8 @@ public class Book {
     private String ISBN;
     private String title;
     private String edition;
-    private String category;
+    private Category category;
     private Double price;
-   // private String userID;
     private String datePosted;
 
     private Book(){}
@@ -42,17 +41,11 @@ public class Book {
         return edition;
     }
 
-    public String getCategory() {
-        return category;
-    }
+    public Category getCategory() {return category;}
 
     public Double getPrice() {
         return price;
     }
-
-    //public String getUserID() {
-       // return userID;
-    //}
 
     public String getDatePosted() {
         return datePosted;
@@ -62,12 +55,12 @@ public class Book {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (!(o instanceof Book book)) return false;
-        return getBookID() == book.getBookID() && Objects.equals(getISBN(), book.getISBN()) && Objects.equals(getTitle(), book.getTitle()) && Objects.equals(getEdition(), book.getEdition()) && Objects.equals(getCategory(), book.getCategory()) && Objects.equals(getPrice(), book.getPrice()) /*&& Objects.equals(getUserID(), book.getUserID())*/ && Objects.equals(getDatePosted(), book.getDatePosted());
+        return getBookID() == book.getBookID() && Objects.equals(getISBN(), book.getISBN()) && Objects.equals(getTitle(), book.getTitle()) && Objects.equals(getEdition(), book.getEdition()) && Objects.equals(getCategory(), book.getCategory()) && Objects.equals(getPrice(), book.getPrice()) && Objects.equals(getDatePosted(), book.getDatePosted());
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(getBookID(), getISBN(), getTitle(), getEdition(), getCategory(), getPrice() /*getUserID()*/, getDatePosted());
+        return Objects.hash(getBookID(), getISBN(), getTitle(), getEdition(), getCategory(), getPrice(), getDatePosted());
     }
 
     @Override
@@ -77,9 +70,8 @@ public class Book {
                 ", ISBN='" + ISBN + '\'' +
                 ", title='" + title + '\'' +
                 ", edition='" + edition + '\'' +
-                ", category='" + category + '\'' +
+                ", category=" + category +
                 ", price=" + price +
-               // ", userID='" + userID + '\'' +
                 ", datePosted='" + datePosted + '\'' +
                 '}';
     }
@@ -89,9 +81,8 @@ public class Book {
         private String ISBN;
         private String title;
         private String edition;
-        private String category;
+        private Category category;
         private Double price;
-        //private String userID;
         private String datePosted;
 
         public Builder setBookID(long bookID) {
@@ -114,7 +105,7 @@ public class Book {
             return this;
         }
 
-        public Builder setCategory(String category) {
+        public Builder setCategory(Category category) {
             this.category = category;
             return this;
         }
@@ -123,11 +114,6 @@ public class Book {
             this.price = price;
             return this;
         }
-
-       /* public Builder setUserID(String userID) {
-            this.userID = userID;
-            return this;
-        }*/
 
         public Builder setDatePosted(String datePosted) {
             this.datePosted = datePosted;
@@ -140,7 +126,6 @@ public class Book {
             this.edition= b.edition;
             this.category= b.category;
             this.price= b.price;
-            //this.userID= b.userID;
             this.datePosted= b.datePosted;
             return this;
         }
