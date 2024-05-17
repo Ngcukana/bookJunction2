@@ -32,7 +32,7 @@ class BuyerFactoryTest {
         Assertions.assertEquals(email, buyer.getEmail());
         Assertions.assertEquals(phoneNumber, buyer.getPhoneNumber());
         Assertions.assertEquals(interestedBooks, buyer.getInterestedBooks());
-
+        System.out.println(buyer.toString());
 
     }
 }

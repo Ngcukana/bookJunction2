@@ -29,6 +29,7 @@ class SellerFactoryTest {
         Assertions.assertEquals(email, seller.getEmail());
         Assertions.assertEquals(phoneNumber, seller.getPhoneNumber());
         Assertions.assertEquals(BooksForSale, seller.getBooksForSale());
+        System.out.println(seller.toString());
 
 
     }
