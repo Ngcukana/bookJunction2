@@ -3,13 +3,13 @@ package za.ac.cput.domain;
 import java.util.Objects;
 
 public class Book {
-    private int bookID;
+    private long bookID;
     private String ISBN;
     private String title;
     private String edition;
     private String category;
     private Double price;
-    private String userID;
+   // private String userID;
     private String datePosted;
 
     private Book(){}
@@ -21,12 +21,12 @@ public class Book {
         this.edition= builder.edition;
         this.category= builder.category;
         this.price= builder.price;
-        this.userID= builder.userID;
+        //this.userID= builder.userID;
         this.datePosted= builder.datePosted;
 
     }
 
-    public int getBookID() {
+    public long getBookID() {
         return bookID;
     }
 
@@ -50,9 +50,9 @@ public class Book {
         return price;
     }
 
-    public String getUserID() {
-        return userID;
-    }
+    //public String getUserID() {
+       // return userID;
+    //}
 
     public String getDatePosted() {
         return datePosted;
@@ -62,12 +62,12 @@ public class Book {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (!(o instanceof Book book)) return false;
-        return getBookID() == book.getBookID() && Objects.equals(getISBN(), book.getISBN()) && Objects.equals(getTitle(), book.getTitle()) && Objects.equals(getEdition(), book.getEdition()) && Objects.equals(getCategory(), book.getCategory()) && Objects.equals(getPrice(), book.getPrice()) && Objects.equals(getUserID(), book.getUserID()) && Objects.equals(getDatePosted(), book.getDatePosted());
+        return getBookID() == book.getBookID() && Objects.equals(getISBN(), book.getISBN()) && Objects.equals(getTitle(), book.getTitle()) && Objects.equals(getEdition(), book.getEdition()) && Objects.equals(getCategory(), book.getCategory()) && Objects.equals(getPrice(), book.getPrice()) /*&& Objects.equals(getUserID(), book.getUserID())*/ && Objects.equals(getDatePosted(), book.getDatePosted());
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(getBookID(), getISBN(), getTitle(), getEdition(), getCategory(), getPrice(), getUserID(), getDatePosted());
+        return Objects.hash(getBookID(), getISBN(), getTitle(), getEdition(), getCategory(), getPrice() /*getUserID()*/, getDatePosted());
     }
 
     @Override
@@ -79,22 +79,22 @@ public class Book {
                 ", edition='" + edition + '\'' +
                 ", category='" + category + '\'' +
                 ", price=" + price +
-                ", userID='" + userID + '\'' +
+               // ", userID='" + userID + '\'' +
                 ", datePosted='" + datePosted + '\'' +
                 '}';
     }
 
     public static class Builder {
-        private int bookID;
+        private long bookID;
         private String ISBN;
         private String title;
         private String edition;
         private String category;
         private Double price;
-        private String userID;
+        //private String userID;
         private String datePosted;
 
-        public Builder setBookID(int bookID) {
+        public Builder setBookID(long bookID) {
             this.bookID = bookID;
             return this;
         }
@@ -124,10 +124,10 @@ public class Book {
             return this;
         }
 
-        public Builder setUserID(String userID) {
+       /* public Builder setUserID(String userID) {
             this.userID = userID;
             return this;
-        }
+        }*/
 
         public Builder setDatePosted(String datePosted) {
             this.datePosted = datePosted;
@@ -140,7 +140,7 @@ public class Book {
             this.edition= b.edition;
             this.category= b.category;
             this.price= b.price;
-            this.userID= b.userID;
+            //this.userID= b.userID;
             this.datePosted= b.datePosted;
             return this;
         }
