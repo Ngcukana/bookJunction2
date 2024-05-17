@@ -80,30 +80,37 @@ public class Author {
 
         public Builder setAuthorID(String authorID) {
             this.authorID = authorID;
+            return this;
         }
 
         public Builder setFirstName(String firstName) {
             this.firstName = firstName;
+            return this;
         }
 
         public Builder setLastName(String lastName) {
             this.lastName = lastName;
+            return this;
         }
 
         public Builder setDateofbirth(String dateofbirth) {
             this.dateofbirth = dateofbirth;
+            return this;
         }
 
         public Builder setEmailAddress(String emailAddress) {
             this.emailAddress = emailAddress;
+            return this;
         }
 
         public Builder setPhoneNumber(String phoneNumber) {
             this.phoneNumber = phoneNumber;
+            return this;
         }
 
         public Builder setNationality(String nationality) {
             this.nationality = nationality;
+            return this;
         }
 
         public Author.Builder copy(Author a) {

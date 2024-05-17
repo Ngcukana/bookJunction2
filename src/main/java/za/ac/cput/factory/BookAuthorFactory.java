@@ -11,9 +11,9 @@ public class BookAuthorFactory {
             return null;
 
         return new BookAuthor.Builder()
-                .setAuthorID(bookAuthorID)
-                .setFirstName(authorID)
-                .setLastName(bookID)
+                .setBookAuthorID(Integer.parseInt(bookAuthorID))
+                .setAuthorID(authorID)
+                . setBookID(bookID)
                 .build();
     }
 }
