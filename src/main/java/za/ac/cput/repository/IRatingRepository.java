@@ -5,7 +5,12 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import za.ac.cput.domain.Rating;
 
 
-public interface RatingRepository extends JpaRepository <Rating, String> {
+public interface IRatingRepository extends JpaRepository <Rating, String> {
+
+   @Override
+    findBy(){
+
+   }
 
 }
 
