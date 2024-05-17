@@ -8,10 +8,10 @@ import java.time.LocalDateTime;
 
 public class AppointmentFactory {
     public static Appointment createAppointment(String appointmentId, String buyerId, String description, LocalDateTime dateTime, Location location) {
-        if (Helper.isNullorEmpty(String.valueOf(appointmentId)) || Helper.isNullorEmpty(String.valueOf(buyerId)) ||
-                Helper.isNullorEmpty(description) || dateTime == null || location == null) {
+        if (Helper.isNullOrEmpty(String.valueOf(appointmentId)) || Helper.isNullOrEmpty(String.valueOf(buyerId)) ||
+                Helper.isNullOrEmpty(description) || dateTime == null || location == null)
             return null;
-        }
+
 
         return new Appointment.Builder()
                 .setAppointmentId(appointmentId)

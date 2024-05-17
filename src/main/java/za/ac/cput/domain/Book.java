@@ -7,7 +7,6 @@ public class Book {
     private String ISBN;
     private String title;
     private String edition;
-    private Category category;
     private Double price;
     private String datePosted;
 
@@ -18,9 +17,7 @@ public class Book {
         this.ISBN= builder.ISBN;
         this.title= builder.title;
         this.edition= builder.edition;
-        this.category= builder.category;
         this.price= builder.price;
-        //this.userID= builder.userID;
         this.datePosted= builder.datePosted;
 
     }
@@ -41,8 +38,6 @@ public class Book {
         return edition;
     }
 
-    public Category getCategory() {return category;}
-
     public Double getPrice() {
         return price;
     }
@@ -55,12 +50,12 @@ public class Book {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (!(o instanceof Book book)) return false;
-        return getBookID() == book.getBookID() && Objects.equals(getISBN(), book.getISBN()) && Objects.equals(getTitle(), book.getTitle()) && Objects.equals(getEdition(), book.getEdition()) && Objects.equals(getCategory(), book.getCategory()) && Objects.equals(getPrice(), book.getPrice()) && Objects.equals(getDatePosted(), book.getDatePosted());
+        return getBookID() == book.getBookID() && Objects.equals(getISBN(), book.getISBN()) && Objects.equals(getTitle(), book.getTitle()) && Objects.equals(getEdition(), book.getEdition()) && Objects.equals(getPrice(), book.getPrice()) && Objects.equals(getDatePosted(), book.getDatePosted());
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(getBookID(), getISBN(), getTitle(), getEdition(), getCategory(), getPrice(), getDatePosted());
+        return Objects.hash(getBookID(), getISBN(), getTitle(), getEdition(), getPrice(), getDatePosted());
     }
 
     @Override
@@ -70,7 +65,6 @@ public class Book {
                 ", ISBN='" + ISBN + '\'' +
                 ", title='" + title + '\'' +
                 ", edition='" + edition + '\'' +
-                ", category=" + category +
                 ", price=" + price +
                 ", datePosted='" + datePosted + '\'' +
                 '}';
@@ -81,7 +75,6 @@ public class Book {
         private String ISBN;
         private String title;
         private String edition;
-        private Category category;
         private Double price;
         private String datePosted;
 
@@ -105,11 +98,6 @@ public class Book {
             return this;
         }
 
-        public Builder setCategory(Category category) {
-            this.category = category;
-            return this;
-        }
-
         public Builder setPrice(Double price) {
             this.price = price;
             return this;
@@ -124,7 +112,6 @@ public class Book {
             this.ISBN= b.ISBN;
             this.title= b.title;
             this.edition= b.edition;
-            this.category= b.category;
             this.price= b.price;
             this.datePosted= b.datePosted;
             return this;

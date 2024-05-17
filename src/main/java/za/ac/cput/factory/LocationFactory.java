@@ -5,10 +5,9 @@ import za.ac.cput.domain.Location;
 
 public class LocationFactory {
     public static Location createLocation(String address, String contactInformation, String operatingHours, String city) {
-        if (Helper.isNullorEmpty(address) || Helper.isNullorEmpty(contactInformation) ||
-                Helper.isNullorEmpty(operatingHours) || Helper.isNullOrEmpty(city)) {
+        if (Helper.isNullOrEmpty(address) || Helper.isNullOrEmpty(contactInformation) ||
+                Helper.isNullOrEmpty(operatingHours) || Helper.isNullOrEmpty(city))
             return null;
-        }
 
         return new Location.Builder()
                 .setAddress(address)
