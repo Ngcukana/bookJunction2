@@ -5,6 +5,7 @@ import za.ac.cput.domain.Category;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 public class CategoryRepository implements ICategoryRepository{
     private static CategoryRepository repository = null;
@@ -36,11 +37,22 @@ public class CategoryRepository implements ICategoryRepository{
 
     @Override
     public Category read(Long aLong) {
+        for (Category category : CategoryList) {
+            if (Objects.equals(category.getCategoryID(), category)) {
+            }
+            return category;
+        }
         return null;
     }
 
     @Override
     public Category update(Category object) {
+        Category existingCategory = read(object.getCategoryID());
+        if (existingCategory != null) {
+            CategoryList.remove(existingCategory);
+            CategoryList.add(object);
+            return object;
+        }
         return null;
     }
 }

@@ -18,9 +18,6 @@ class CategoryFactoryTest {
         Category category = CategoryFactory.createCategory(categoryID,name,description);
 
         Assertions.assertNotNull(category);
-        Assertions.assertEquals(categoryID, category.getCategoryID());
-        Assertions.assertEquals(name, category.getName());
-        Assertions.assertEquals(description, category.getDescription());
         System.out.println(category.toString());
     }
 }

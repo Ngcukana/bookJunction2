@@ -37,7 +37,6 @@ public class BookRepository implements IBookRepository{
     public Book read(Long aLong) {
         for (Book book : BookList) {
             if (Objects.equals(book.getBookID(), book)) {
-
             }
             return book;
         }

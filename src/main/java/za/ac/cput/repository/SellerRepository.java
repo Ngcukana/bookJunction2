@@ -4,40 +4,54 @@ import za.ac.cput.domain.Seller;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
-public class SellerRepository implements ISellerRepository {
-    private List<Seller> sellers;
+public class SellerRepository implements ISellerRepository{
 
-    public SellerRepository() {
-        this.sellers = new ArrayList<>();
+    private static SellerRepository repository = null;
+    private List<Seller> SellerList;
+    private SellerRepository() {
+        SellerList = new ArrayList<>();
+    }
+
+    public static ISellerRepository getRepository() {
+        if (repository == null) {
+            repository = new SellerRepository();
+        }
+        return repository;
     }
 
     @Override
-    public void addSeller(Seller seller) {
-        sellers.add(seller);
+    public List<Seller> getAll() {
+        return SellerList;
     }
 
     @Override
-    public void removeSeller(Seller seller) {
-        sellers.remove(seller);
-    }
-
-    @Override
-    public List<Seller> getAllSellers() {
-        return new ArrayList<>(sellers);
-    }
-
-    @Override
-    public Seller findSellerByEmail(String email) {
+    public Seller create(Seller object) {
+        if (SellerList.add(object)) {
+            return object;
+        }
         return null;
     }
 
     @Override
-    public Seller findSellerById(String Email) {
-        for (Seller seller : sellers) {
-            if (seller.getEmail() == Email) {
-                return seller;
+    public Seller read(String s) {
+        for (Seller seller : SellerList) {
+            if (Objects.equals(seller.getEmail(), seller)) {
+
             }
+            return seller;
+        }
+        return null;
+    }
+
+    @Override
+    public Seller update(Seller object) {
+        Seller existingSeller = read(object.getEmail());
+        if (existingSeller != null) {
+            SellerList.remove(existingSeller);
+            SellerList.add(object);
+            return object;
         }
         return null;
     }
