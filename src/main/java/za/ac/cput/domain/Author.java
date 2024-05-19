@@ -1,7 +1,6 @@
 package za.ac.cput.domain;
 
-import java.util.ArrayList;
-import java.util.List;
+
 import java.util.Objects;
 
 public class Author {
@@ -12,44 +11,48 @@ public class Author {
     private String emailAddress;
     private String phoneNumber;
     private String nationality;
-    private List<Book> newbook;
 
     private Author() {
 
     }
-    private Author (Builder builder) {
+
+    private Author(Builder builder) {
         this.authorID = builder.authorID;
         this.firstName = builder.firstName;
         this.lastName = builder.lastName;
         this.dateofbirth = builder.dateofbirth;
-        this.emailAddress= builder.emailAddress;
-        this.phoneNumber= builder.phoneNumber;
-        this.nationality= builder.nationality;
-        List<Book> AuthorID = new ArrayList<>();
+        this.emailAddress = builder.emailAddress;
+        this.phoneNumber = builder.phoneNumber;
+        this.nationality = builder.nationality;
+
     }
+
     public String getAuthorID() {
         return authorID;
     }
+
     public String getFirstName() {
         return firstName;
     }
+
     public String getLastName() {
         return lastName;
     }
+
     public String getDateofbirth() {
         return dateofbirth;
     }
+
     public String getEmailAddress() {
         return emailAddress;
     }
+
     public String getPhoneNumber() {
         return phoneNumber;
     }
+
     public String getNationality() {
         return nationality;
-    }
-    public List<Book> getNewBook() {
-        return newbook;
     }
 
     @Override
@@ -75,11 +78,6 @@ public class Author {
                 ", phoneNumber='" + phoneNumber + '\'' +
                 ", nationality='" + nationality + '\'' +
                 '}';
-    }
-
-    public Author.Builder newbook(List<Book> booksForSale) {
-        this.newbook = booksForSale;
-        return this;
     }
 
     public static class Builder {
@@ -126,7 +124,7 @@ public class Author {
             return this;
         }
 
-        public Author.Builder copy(Author a) {
+        public Author copy(Author a) {
             this.authorID = a.authorID;
             this.firstName = a.firstName;
             this.lastName = a.lastName;
@@ -134,12 +132,12 @@ public class Author {
             this.emailAddress = a.emailAddress;
             this.phoneNumber = a.phoneNumber;
             this.nationality = a.nationality;
-            return this;
-        }
 
-        public Author build() {
-            return new Author(this);
+
+            public Author build () {
+                return new Author(this);
+            }
         }
     }
-
 }
+
