@@ -1,7 +1,5 @@
 package za.ac.cput.domain;
 
-import za.ac.cput.domain.Book;
-
 import java.util.List;
 import java.util.Objects;
 
@@ -67,25 +65,25 @@ public class Buyer {
                 private String phoneNumber;
                 private List<Book> interestedBooks;
 
-                public Builder name(String name) {
+                public Builder setname(String name) {
                         this.name = name;
                         return this;
                 }
 
-                public Builder email(String email) {
+                public Builder setemail(String email) {
                         this.email = email;
                         return this;
                 }
 
-                public Builder phoneNumber(String phoneNumber) {
+                public Builder setphoneNumber(String phoneNumber) {
                         this.phoneNumber = phoneNumber;
                         return this;
                 }
 
 
 
-                public Builder interestedBooks(List<Book> interestedBooks) {
-                        this.interestedBooks = interestedBooks;
+                public Builder setinterestedBooks( List interestedBooks) {
+                        this.interestedBooks = (List<Book>) interestedBooks;
                         return this;
                 }
                 public Buyer.Builder copy(Buyer buyer) {
@@ -99,5 +97,7 @@ public class Buyer {
                 public Buyer build() {
                         return new Buyer(this);
                 }
+
+
         }
 }

@@ -66,23 +66,23 @@ public class Seller {
         private String phoneNumber;
         private List<Book> booksForSale;
 
-        public Builder name(String name) {
+        public Builder setname(String name) {
             this.name = name;
             return this;
         }
 
-        public Builder email(String email) {
+        public Builder setemail(String email) {
             this.email = email;
             return this;
         }
 
-        public Builder phoneNumber(String phoneNumber) {
+        public Builder setphoneNumber(String phoneNumber) {
             this.phoneNumber = phoneNumber;
             return this;
         }
 
 
-        public Builder booksForSale(List<Book> booksForSale) {
+        public Builder setbooksForSale(List<Book> booksForSale) {
             this.booksForSale = booksForSale;
             return this;
         }
@@ -97,5 +97,7 @@ public class Seller {
         public Seller build() {
             return new Seller(this);
         }
+
+
     }
 }
