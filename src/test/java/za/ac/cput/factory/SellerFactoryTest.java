@@ -3,7 +3,6 @@ package za.ac.cput.factory;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import za.ac.cput.domain.Book;
-import za.ac.cput.domain.Buyer;
 import za.ac.cput.domain.Seller;
 
 import java.util.ArrayList;
@@ -21,7 +20,7 @@ class SellerFactoryTest {
 
         // Create the Seller using the factory
 
-        Seller seller = SellerFactory.createSeller(name, email, phoneNumber, BooksForSale);
+        Seller seller = SellerFactory.createSeller(name, email, phoneNumber);
 
         // Assertions
         Assertions.assertNotNull(seller);

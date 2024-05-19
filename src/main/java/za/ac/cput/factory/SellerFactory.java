@@ -8,16 +8,17 @@ import java.util.List;
 
 
 public class SellerFactory {
-    public static Seller createSeller(String name, String email, String phoneNumber, List<Book> BooksForSale) {
+    public static Seller createSeller(String name, String email, String phoneNumber) {
+        List<Book> BooksForSale = List.of();
         if (Helper.isNullOrEmpty(String.valueOf(name)) || Helper.isNullOrEmpty(name) || Helper.isNullOrEmpty(email)
                 || Helper.isNullOrEmpty(phoneNumber) || Helper.isNullOrEmpty(BooksForSale.toString())) {
                 return null;
             }
             return new Seller.Builder()
-                    .name(name)
-                    .email(email)
-                    .phoneNumber(phoneNumber)
-                    .booksForSale(BooksForSale)
+                    .setname(name)
+                    .setemail(email)
+                    .setphoneNumber(phoneNumber)
+                    .setbooksForSale(BooksForSale)
                     .build();
         }
 
