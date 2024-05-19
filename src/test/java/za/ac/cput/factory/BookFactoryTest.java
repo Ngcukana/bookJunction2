@@ -3,7 +3,6 @@ package za.ac.cput.factory;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import za.ac.cput.domain.Book;
-import za.ac.cput.domain.Buyer;
 
 import java.util.ArrayList;
 import java.util.List;

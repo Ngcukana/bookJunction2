@@ -4,5 +4,5 @@ public interface IService <Object, ID>{
     Object create(Object obj);
     Object read(ID id);
     Object update(Object obj);
-    Object delete(ID id);
+
 }

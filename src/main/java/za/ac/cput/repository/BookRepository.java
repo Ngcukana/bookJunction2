@@ -1,9 +1,12 @@
 package za.ac.cput.repository;
 
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
 import za.ac.cput.domain.Book;
 
 import java.util.List;
 
-public interface BookRepository extends IRepository<Book, Long> {
-    List<Book> getAll();
+@Repository
+public interface BookRepository extends JpaRepository<Book, String> {
+    Book findByTitle(String title);
 }
