@@ -1,4 +1,5 @@
 package za.ac.cput.service;
 
-public interface IBookService {
+public interface IBookService extends IService {
+
 }
