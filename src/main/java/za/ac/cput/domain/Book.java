@@ -1,8 +1,14 @@
 package za.ac.cput.domain;
 
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
+
 import java.util.Objects;
 
+@Entity
 public class Book {
+
+    @Id
     private Long bookID;
     private String ISBN;
     private String title;
@@ -10,9 +16,11 @@ public class Book {
     private Double price;
     private String datePosted;
 
-    private Book(){}
+    protected Book() {
 
-    protected Book(Builder builder){
+    }
+
+    public Book(Builder builder){
         this.bookID=builder.bookID;
         this.ISBN= builder.ISBN;
         this.title= builder.title;

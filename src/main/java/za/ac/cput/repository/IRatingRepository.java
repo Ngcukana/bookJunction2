@@ -7,10 +7,6 @@ import za.ac.cput.domain.Rating;
 
 public interface IRatingRepository extends JpaRepository <Rating, String> {
 
-   @Override
-    findBy(){
-
-   }
 
 }
 
