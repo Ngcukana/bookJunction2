@@ -25,7 +25,7 @@ public class Cart {
 
 
 
-    public int getCartId() {
+    public String getCartId() {
         return cartId;
     }
 
@@ -68,6 +68,11 @@ public class Cart {
                 ", totalPrice=" + totalPrice +
                 '}';
     }
+
+    public Cart orElse(Object o) {
+        return null;
+    }
+
     public static class Builder{
         private int cartId;
         private int userId;
