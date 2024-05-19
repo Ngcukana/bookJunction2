@@ -27,7 +27,7 @@ public class Transaction {
 
     }
 
-    public int getTransactionID() {
+    public String getTransactionID() {
         return transactionID;
     }
 
