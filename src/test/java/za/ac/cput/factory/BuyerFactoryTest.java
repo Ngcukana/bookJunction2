@@ -8,6 +8,7 @@ import za.ac.cput.domain.Book;
 import za.ac.cput.domain.Buyer;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -20,19 +21,17 @@ class BuyerFactoryTest {
         String name = "Lucky Mkhetyeva";
         String email = "gatsby@gmail.com";
         String phoneNumber = "123456789";
-        List<Book> interestedBooks = new ArrayList<>();
 
         // Create the Buyer using the factory
 
-        Buyer buyer = BuyerFactory.createBuyer(name, email, phoneNumber,interestedBooks);
+        Buyer buyer = BuyerFactory.createBuyer(name, email, phoneNumber);
 
         // Assertions
         Assertions.assertNotNull(buyer);
-        Assertions.assertEquals(name, buyer.getName());
-        Assertions.assertEquals(email, buyer.getEmail());
-        Assertions.assertEquals(phoneNumber, buyer.getPhoneNumber());
-        Assertions.assertEquals(interestedBooks, buyer.getInterestedBooks());
+        assertEquals(name, buyer.getName());
+        assertEquals(email, buyer.getEmail());
+        assertEquals(phoneNumber, buyer.getPhoneNumber());
         System.out.println(buyer.toString());
-
     }
+
 }
