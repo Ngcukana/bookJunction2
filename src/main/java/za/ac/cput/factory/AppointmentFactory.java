@@ -7,9 +7,11 @@ import za.ac.cput.domain.Location;
 import java.time.LocalDateTime;
 
 public class AppointmentFactory {
-    public static Appointment createAppointment(String appointmentId, String buyerId, String description, LocalDateTime dateTime, Location location) {
+    public static Appointment createAppointment(String appointmentId, String buyerId, String description, LocalDateTime dateTime) {
+        Location location = null;
+
         if (Helper.isNullOrEmpty(String.valueOf(appointmentId)) || Helper.isNullOrEmpty(String.valueOf(buyerId)) ||
-                Helper.isNullOrEmpty(description) || dateTime == null || location == null)
+                Helper.isNullOrEmpty(description) || Helper.isNullOrEmpty(String.valueOf(dateTime)) || Helper.isNullOrEmpty(String.valueOf(location)))
             return null;
 
 
