@@ -1,9 +1,12 @@
 package za.ac.cput.domain;
 
 import java.util.Objects;
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
 
+@Entity
 public class Rating {
-
+    @Id
     private String reviewID;
     private String firstName;
     private String lastName;
