@@ -1,15 +1,20 @@
 package za.ac.cput.domain;
 
+import jakarta.persistence.*;
+
 import java.time.LocalDateTime;
 import java.util.Objects;
 
+@Entity
 public class Appointment {
+    @Id
     private String appointmentId;
     private String buyerId;
     private String description;
     private LocalDateTime dateTime;
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "Address")
     private Location location;
-
     protected Appointment() {
     }
 
