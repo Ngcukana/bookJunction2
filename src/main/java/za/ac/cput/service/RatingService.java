@@ -28,8 +28,8 @@ public class RatingService implements IRatingService {
     }
 
     @Override
-    public Rating read(String Id) {
-        return repository.findByReviewID(Id);    }
+    public Rating read(String reviewId) {
+        return repository.findByReviewID(reviewId);    }
 
     @Override
     public Rating update(Rating obj) {
