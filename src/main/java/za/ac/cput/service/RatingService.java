@@ -1,6 +1,7 @@
 package za.ac.cput.service;
 
 import org.springframework.stereotype.Service;
+import org.springframework.beans.factory.annotation.Autowired;
 import za.ac.cput.domain.Rating;
 import za.ac.cput.repository.RatingRepository;
 
@@ -12,11 +13,13 @@ public class RatingService implements IRatingService {
     private static IRatingService service = null;
     private RatingRepository repository;
 
+    @Autowired
     private RatingService(){}
-
-    @Override
-    public List<Rating> getall() {
-        return List.of();
+    public static IRatingService getService() {
+        if (service == null){
+            service = new RatingService();
+        }
+        return service;
     }
 
     @Override
@@ -25,11 +28,16 @@ public class RatingService implements IRatingService {
     }
 
     @Override
-    public Rating read(String s) {
-        return null;    }
+    public Rating read(String Id) {
+        return repository.findByReviewID(Id);    }
 
     @Override
     public Rating update(Rating obj) {
-        return null;
+        return repository.save(obj);
+    }
+
+    @Override
+    public List<Rating> getall() {
+        return repository.findAll();
     }
 }
