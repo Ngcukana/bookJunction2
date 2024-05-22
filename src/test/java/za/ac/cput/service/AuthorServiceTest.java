@@ -43,7 +43,7 @@ class AuthorServiceTest {
 
     @Test
     void update() {
-        Author newAuthor = new Author.Builder().copy(author2).setNationality("American").build();
+        Author newAuthor = new Author.Builder().copy(author2).setPhoneNumber("0835093419").build();
         Author updated = authorService.update(newAuthor);
         assertNotNull(updated);
         System.out.println(updated);

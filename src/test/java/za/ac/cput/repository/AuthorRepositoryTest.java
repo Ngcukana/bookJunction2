@@ -7,6 +7,6 @@ import static org.junit.jupiter.api.Assertions.*;
 class AuthorRepositoryTest {
 
     @Test
-    void findByAuthorID() {
+    void findByFirstName() {
     }
 }

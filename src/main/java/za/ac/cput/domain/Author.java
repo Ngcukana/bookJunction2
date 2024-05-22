@@ -124,7 +124,7 @@ public class Author {
             return this;
         }
 
-        public Author copy(Author a) {
+        public Builder copy(Author a) {
             this.authorID = a.authorID;
             this.firstName = a.firstName;
             this.lastName = a.lastName;
@@ -132,12 +132,12 @@ public class Author {
             this.emailAddress = a.emailAddress;
             this.phoneNumber = a.phoneNumber;
             this.nationality = a.nationality;
+            return this;
+        }
 
-
-            public Author build () {
-                return new Author(this);
-            }
+            public Author build(){
+                return new Author(this);}
         }
     }
-}
+
 

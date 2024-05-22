@@ -1,11 +1,13 @@
 package za.ac.cput.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 import za.ac.cput.domain.Author;
 import za.ac.cput.repository.AuthorRepository;
-
+import za.ac.cput.service.AuthorRepository.AuthorRepository;
 
 import java.util.List;
+@Service
 
 public class AuthorService implements IAuthorService{
 
@@ -13,8 +15,8 @@ public class AuthorService implements IAuthorService{
     private AuthorRepository repository;
 
     @Autowired
-    private AuthorService(){
-
+    private AuthorService(AuthorRepository repository){
+        this.repository = repository;
     }
 
     public static IAuthorService getService() {
@@ -30,13 +32,13 @@ public class AuthorService implements IAuthorService{
     }
 
     @Override
-    public Author read(String authorID) {
-        return repository.findByAuthorID(authorID);
+    public Author read(String firstName) {
+        return repository.findbyFirstName(firstName);
     }
 
     @Override
     public Author update(Author author) {
-        return repository.save(author);
+        return repository.update(author);
     }
 
     @Override
