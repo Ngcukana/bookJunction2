@@ -86,6 +86,7 @@ public class Seller {
             this.booksForSale = booksForSale;
             return this;
         }
+
         public Seller.Builder copy(Seller seller) {
             this.name = seller.name;
             this.email = seller.email;
@@ -97,7 +98,7 @@ public class Seller {
         public Seller build() {
             return new Seller(this);
         }
-
-
     }
+
+
 }

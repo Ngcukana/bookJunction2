@@ -45,7 +45,7 @@ public class TransactionTest {
     @Order(3)
     @Test
     void read() {
-        Transaction read = transactionService.read(transaction1.getTransactionID());
+        Transaction read = transactionService.read(String.valueOf(transaction1.getTransactionID()));
         assertNotNull(read);
         System.out.println(read);
     }

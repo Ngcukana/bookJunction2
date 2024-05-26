@@ -43,7 +43,7 @@ public class CartServiceTest {
     @Order(3)
     @Test
     void read() {
-        Cart read = cartService.read(cart1.getCartId());
+        Cart read = cartService.read(String.valueOf(cart1.getCartId()));
         assertNotNull(read);
         System.out.println(read);
     }

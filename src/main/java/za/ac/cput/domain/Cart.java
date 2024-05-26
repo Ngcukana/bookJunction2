@@ -25,7 +25,7 @@ public class Cart {
 
 
 
-    public String getCartId() {
+    public int getCartId() {
         return cartId;
     }
 
