@@ -1,59 +1,37 @@
 package za.ac.cput.service;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
 import za.ac.cput.domain.Buyer;
 import za.ac.cput.repository.BuyerRepository;
 
 import java.util.List;
 
-/**
- *
- */
 @Service
-public class BuyerService implements IBuyerService {
-
-    private static IBuyerService service = null;
-    private BuyerRepository repository;
-
+public class BuyerService {
     @Autowired
-    private BuyerService() {
+    private BuyerRepository buyerRepository;
 
-        this.repository = repository;
+    public Buyer create(Buyer buyer) {
+        return buyerRepository.save(buyer);
     }
 
-    public static IBuyerService getService() {
-        if (service == null) {
-            service = new BuyerService();
+    public Buyer read(String email) {
+        return buyerRepository.findById(email).orElse(null);
+    }
+
+    public Buyer update(Buyer buyer) {
+        if (buyerRepository.existsById(buyer.getEmail())) {
+            return buyerRepository.save(buyer);
         }
-        return service;
-    }
-
-
-    @Override
-    public Object create(Object obj) {
         return null;
     }
 
-    @Override
-    public Object read(Object o) {
-        return null;
+    public List<Buyer> getAll() {
+        return buyerRepository.findAll();
     }
 
-    @Override
-    public Object update(Object obj) {
-        return null;
-    }
-
-    @Override
-    public List<Buyer> getall() {
-        return List.of();
+    public void delete(String email) {
+        buyerRepository.deleteById(email);
     }
 }
-
-
-
-
-
-
-
