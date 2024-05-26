@@ -1,51 +1,63 @@
 package za.ac.cput.domain;
 
-
-
-@Entity
 public class Buyer {
-        public void setEmail(String email) {
-                this.email = email;
-        }
-
-        private String email;
         private String name;
+        private String email;
         private String phoneNumber;
 
-        public Buyer() {
-                this.email = email;
-                this.name = name;
-                this.phoneNumber = phoneNumber;
+        // Private constructor to enforce the use of the factory
+        private Buyer(Builder builder) {
+                this.name = builder.name;
+                this.email = builder.email;
+                this.phoneNumber = builder.phoneNumber;
+        }
+
+        // Getters and toString method
+        public String getName() {
+                return name;
         }
 
         public String getEmail() {
                 return email;
         }
 
-        public String getName() {
-                return name;
-        }
-
         public String getPhoneNumber() {
                 return phoneNumber;
         }
 
-        public void setName(String luckyUpdated) {
+        @Override
+        public String toString() {
+                return "Buyer{" +
+                        "name='" + name + '\'' +
+                        ", email='" + email + '\'' +
+                        ", phoneNumber='" + phoneNumber + '\'' +
+                        '}';
         }
 
+        public void setName(String name) {
+                this.name = name;
+        }
+
+        public void setEmail(String email) {
+                this.email = email;
+        }
+
+        public void setPhoneNumber(String phoneNumber) {
+                this.phoneNumber = phoneNumber;
+        }
 
         public static class Builder {
-                private String email;
                 private String name;
+                private String email;
                 private String phoneNumber;
-
-                public Builder setEmail(String email) {
-                        this.email = email;
-                        return this;
-                }
 
                 public Builder setName(String name) {
                         this.name = name;
+                        return this;
+                }
+
+                public Builder setEmail(String email) {
+                        this.email = email;
                         return this;
                 }
 
@@ -55,24 +67,14 @@ public class Buyer {
                 }
 
                 public Builder copy(Buyer buyer) {
-                        this.email = buyer.email;
                         this.name = buyer.name;
+                        this.email = buyer.email;
                         this.phoneNumber = buyer.phoneNumber;
                         return this;
                 }
 
                 public Buyer build() {
-                        Buyer buyer = new Buyer();
-                        buyer.email = this.email;
-                        buyer.name = this.name;
-                        buyer.phoneNumber = this.phoneNumber;
-                        return buyer;
+                        return new Buyer(this);
                 }
-
-                public Seller.Builder setname(String name) {
-
-                        return null;
-                }
-
         }
 }
