@@ -1,41 +1,50 @@
 package za.ac.cput.domain;
 
+
 import java.util.Objects;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
 
-@Entity
 public class Rating {
-    @Id
-    private String reviewID;
-    private String firstName;
-    private String lastName;
-    private String review;
+  private int overAllRating;
+  private int bookConditionRating;
+  private int sellerReliabilityRating;
+  private int valueRating;
+  private int deliveryRating;
+  private int accuracyOfRating;
 
-    protected Rating(){}
+  public Rating(){}
 
-    private Rating(Builder myBuilder){
-        this.reviewID = myBuilder.reviewID;
-        this.firstName = myBuilder.firstName;
-        this.lastName = myBuilder.lastName;
-        this.review = myBuilder.review;
+    private Rating (Builder builder){
+      overAllRating = builder.overAllRating;
+      bookConditionRating = builder.bookConditionRating;
+      sellerReliabilityRating = builder.sellerReliabilityRating;
+      valueRating = builder.valueRating;
+      deliveryRating = builder.deliveryRating;
+      accuracyOfRating = builder.accuracyOfRating;
 
     }
 
-    public String getReviewID() {
-        return reviewID;
+    public int getOverAllRating() {
+        return overAllRating;
     }
 
-    public String getFirstName() {
-        return firstName;
+    public int getBookConditionRating() {
+        return bookConditionRating;
     }
 
-    public String getLastName() {
-        return lastName;
+    public int getSellerReliabilityRating() {
+        return sellerReliabilityRating;
     }
 
-    public String getReview() {
-        return review;
+    public int getValueRating() {
+        return valueRating;
+    }
+
+    public int getDeliveryRating() {
+        return deliveryRating;
+    }
+
+    public int getAccuracyOfRating() {
+        return accuracyOfRating;
     }
 
     @Override
@@ -43,57 +52,66 @@ public class Rating {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Rating rating = (Rating) o;
-        return Objects.equals(reviewID, rating.reviewID) && Objects.equals(firstName, rating.firstName) && Objects.equals(lastName, rating.lastName) && Objects.equals(review, rating.review);
+        return overAllRating == rating.overAllRating && bookConditionRating == rating.bookConditionRating && sellerReliabilityRating == rating.sellerReliabilityRating && valueRating == rating.valueRating && deliveryRating == rating.deliveryRating && accuracyOfRating == rating.accuracyOfRating;
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(reviewID, firstName, lastName, review);
+        return Objects.hash(overAllRating, bookConditionRating, sellerReliabilityRating, valueRating, deliveryRating, accuracyOfRating);
     }
 
     @Override
     public String toString() {
         return "Rating{" +
-                "reviewID='" + reviewID + '\'' +
-                ", firstName='" + firstName + '\'' +
-                ", lastName='" + lastName + '\'' +
-                ", review='" + review + '\'' +
+                "overAllRating=" + overAllRating +
+                ", bookConditionRating=" + bookConditionRating +
+                ", sellerReliabilityRating=" + sellerReliabilityRating +
+                ", valueRating=" + valueRating +
+                ", deliveryRating=" + deliveryRating +
+                ", accuracyOfRating=" + accuracyOfRating +
                 '}';
     }
     public static class Builder{
-        private String reviewID;
-        private String firstName;
-        private String lastName;
-        private String review;
+        private int overAllRating;
+        private int bookConditionRating;
+        private int sellerReliabilityRating;
+        private int valueRating;
+        private int deliveryRating;
+        private int accuracyOfRating;
 
-        public Builder setReviewID(String reviewID) {
-            this.reviewID = reviewID;
-            return this;
-        }
 
-        public Builder setFirstName(String firstName) {
-            this.firstName = firstName;
+        public Builder setOverAllRating(int overAllRating) {
+            this.overAllRating = overAllRating;
             return this;
         }
 
-        public Builder setLastName(String lastName) {
-            this.lastName = lastName;
+        public Builder setBookConditionRating(int bookConditionRating) {
+            this.bookConditionRating = bookConditionRating;
             return this;
         }
 
-        public Builder setReview(String review) {
-            this.review = review;
+        public Builder setSellerReliabilityRating(int sellerReliabilityRating) {
+            this.sellerReliabilityRating = sellerReliabilityRating;
             return this;
         }
-        public Builder copy(Rating n) {
-            this.reviewID = n.reviewID;
-            this.firstName = n.firstName;
-            this.lastName = n.lastName;
-            this.review = n.review;
+
+        public Builder setValueRating(int valueRating) {
+            this.valueRating = valueRating;
             return this;
         }
-        public Rating myBuilder(){
+
+        public Builder setDeliveryRating(int deliveryRating) {
+            this.deliveryRating = deliveryRating;
+            return this;
+        }
+
+        public Builder setAccuracyOfRating(int accuracyOfRating) {
+            this.accuracyOfRating = accuracyOfRating;
+            return this;
+        }
+        public Rating build(){
             return new Rating(this);
         }
     }
+
 }
