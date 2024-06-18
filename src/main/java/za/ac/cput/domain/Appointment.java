@@ -5,7 +5,6 @@ import jakarta.persistence.*;
 import java.time.LocalDateTime;
 import java.util.Objects;
 
-@Entity
 public class Appointment {
     @Id
     private String appointmentId;
