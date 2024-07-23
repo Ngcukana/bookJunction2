@@ -5,21 +5,23 @@ import za.ac.cput.util.Helper;
 
 public class RatingFactory {
 
-   public static Rating Builder(String reviewID, String firstName, String lastName, String review){
-       if(Helper.isNullOrEmpty(reviewID)||
-       Helper.isNullOrEmpty(firstName)||
-       Helper.isNullOrEmpty(lastName)||
-       Helper.isNullOrEmpty(review)){
-           return null;
-       }
-       return new Rating.Builder()
-               .setReviewID(reviewID)
-               .setFirstName(firstName)
-               .setLastName(lastName)
-               .setReview(review)
-               .myBuilder();
+    public static Rating rateBuild(int overAllRating, int bookConditionRating, int sellerReliabilityRating, int valueRating, int deliveryRating, int accuracyOfRating){
+        if (Helper.assertInRange(overAllRating) ||
+                Helper.assertInRange(bookConditionRating) ||
+                Helper.assertInRange(sellerReliabilityRating) ||
+                Helper.assertInRange(valueRating) ||
+                Helper.assertInRange(deliveryRating) ||
+                Helper.assertInRange(accuracyOfRating))
+            return null;
 
+        return new Rating.Builder()
+                .setBookConditionRating(bookConditionRating)
+                .setSellerReliabilityRating(sellerReliabilityRating)
+                .setValueRating(valueRating)
+                .setDeliveryRating(deliveryRating)
+                .setAccuracyOfRating(accuracyOfRating)
+                .setOverAllRating(overAllRating)
+                .build();
 
-   }
-
+    }
 }

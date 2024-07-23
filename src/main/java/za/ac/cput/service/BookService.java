@@ -11,9 +11,10 @@ import java.util.List;
 public class BookService implements IBookService{
 
     private static IBookService service=null;
+    @Autowired
     private BookRepository repository;
 
-    @Autowired
+
     private BookService(){
 
     }
